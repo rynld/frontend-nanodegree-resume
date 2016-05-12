@@ -6,20 +6,21 @@ var skills = ["c#","python","programming","machine learning"];
 var bio = {
 	"name": "reynaldo",
 	"skills": skills,
-	"role" :"Software Engineer"
+	"role" :"Software Engineer",
+	"contacts":{"location":"Hollywood,Fl"}
 };
 
 
 var education = {
-	"education":[{"Havana University":"Computer Science"},{"Lenin":"High School"}]
+	"schools":[{"Havana University":"Computer Science","location":"Miami,Fl"},{"Lenin":"High School","location":"Plantation,Fl"}]
 };
 
 var projects = {
-	"projects":[{"Title":"Tiger Grammar","language":"C#"}]
+	"projects":[{"Title":"Tiger Grammar","language":"C#"},{"Title":"Othello","language":"C#"}]
 };
 
 var work = {
-	"jobs":[{"Title":"assistent","Employer":"University"}]
+	"jobs":[{"Title":"assistent","Employer":"University","location":"Havana,Cuba"}]
 
 };
 
@@ -44,6 +45,25 @@ function display_work(work)
 }
 
 display_work(work);
+
+// $(document).click(function(loc)
+// {
+// 	console.log(loc.pageX,loc.pageY);
+// });
+
+$("#main").append(internationalizeButton);
+
+for(i in projects.projects)
+{
+	console.log(i);
+	$("#projects").append(HTMLprojectStart);	
+	$(".project-entry:last").append(HTMLprojectTitle.replace("%data%",projects.projects[i].Title));
+	$(".project-entry:last").append(HTMLprojectDescription.replace("%data%",projects.projects[i].language));
+}
+
+
+$("#mapDiv").append(googleMap);
+
 
 
 
